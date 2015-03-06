@@ -1,5 +1,4 @@
 <?php
-
 /* 
  * The MIT License
  *
@@ -27,15 +26,20 @@
 require ("./vendor/autoload.php");
 include ("./includes/APIconfig.php");
 
-$slim = new Slim\Slim();
+$slim = new \Slim\Slim();
 
-$slim->get('/',function(){
-   echo "You shouldn't be here";
+$slim->get('/','onMain');
+$slim->contentType('application/json');
+
+
+$slim->get('/summoner/:nameId',function($nameId){
+   echo "you wrote: ".$test;
 });
-
-$slim->get('/test',function(){
-   echo "you got a parameter";
-});
-
-
 $slim->run();
+
+
+function onMain() {
+   global $slim;
+   $slim->response->setStatus(404);
+   echo "You shouldn't be here";
+};

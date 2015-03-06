@@ -205,12 +205,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/guzzle/guzzle.git",
-            "reference": "9d9ac47f83d42334b92fc0694a6f65e586533cb9"
+            "reference": "589f1878e785a33f537a2db606a23f09f822d5c7"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/guzzle/guzzle/zipball/9d9ac47f83d42334b92fc0694a6f65e586533cb9",
-            "reference": "9d9ac47f83d42334b92fc0694a6f65e586533cb9",
+            "url": "https://api.github.com/repos/guzzle/guzzle/zipball/589f1878e785a33f537a2db606a23f09f822d5c7",
+            "reference": "589f1878e785a33f537a2db606a23f09f822d5c7",
             "shasum": ""
         },
         "require": {
@@ -222,7 +222,7 @@
             "phpunit/phpunit": "~4.0",
             "psr/log": "~1.0"
         },
-        "time": "2015-03-03 22:37:35",
+        "time": "2015-03-05 17:58:10",
         "type": "library",
         "extra": {
             "branch-alias": {

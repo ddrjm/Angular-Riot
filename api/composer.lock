@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "debbde2321c7a20a2dfd9b4aaa4fdfd7",
+    "hash": "50332461421843c3a06d739870ba1318",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "9d9ac47f83d42334b92fc0694a6f65e586533cb9"
+                "reference": "589f1878e785a33f537a2db606a23f09f822d5c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/9d9ac47f83d42334b92fc0694a6f65e586533cb9",
-                "reference": "9d9ac47f83d42334b92fc0694a6f65e586533cb9",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/589f1878e785a33f537a2db606a23f09f822d5c7",
+                "reference": "589f1878e785a33f537a2db606a23f09f822d5c7",
                 "shasum": ""
             },
             "require": {
@@ -62,7 +62,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2015-03-03 22:37:35"
+            "time": "2015-03-05 17:58:10"
         },
         {
             "name": "guzzlehttp/ringphp",
