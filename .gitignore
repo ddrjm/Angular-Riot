@@ -41,5 +41,8 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# Individual files to be ignored
 /nb-project/nbproject/private/
 /nb-project/
+api/includes/APIconfig.php

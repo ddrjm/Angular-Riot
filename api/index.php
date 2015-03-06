@@ -25,6 +25,7 @@
  */
 
 require ("./vendor/autoload.php");
+include ("./includes/APIconfig.php");
 
 $slim = new Slim\Slim();
 
