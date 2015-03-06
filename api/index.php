@@ -1,5 +1,6 @@
 <?php
-/* 
+
+/*
  * The MIT License
  *
  * Copyright 2015 Ricardo.
@@ -26,20 +27,43 @@
 require ("./vendor/autoload.php");
 include ("./includes/APIconfig.php");
 
-$slim = new \Slim\Slim();
 
-$slim->get('/','onMain');
+//instatiate guzzle and slim objects
+$slim = new \Slim\Slim();
+$guzzle = new GuzzleHttp\Client();
+
+//configure slim parameters
 $slim->contentType('application/json');
 
+//Slim router calls
+$slim->get('/', 'onMain');
+$slim->get('/summoner/:nameId', 'getSummonerByName');
+$slim->get('/featured/', 'getFeaturedGames');
 
-$slim->get('/summoner/:nameId',function($nameId){
-   echo "you wrote: ".$test;
-});
+//run the slim app
 $slim->run();
 
+//Guzzle client configuration
+
+
+function getFeaturedGames() {
+    $client = $GLOBALS['guzzle'];
+
+    $response = $client->get("https://euw.api.pvp.net/observer-mode/rest/featured?api_key=" . API_KEY, ['verify' => false]);
+    $body = $response->getBody();
+    //jsonP protect string see: https://docs.angularjs.org/api/ng/service/$http#get
+    echo ")]}',\n".$body;
+    
+}
 
 function onMain() {
-   global $slim;
-   $slim->response->setStatus(404);
-   echo "You shouldn't be here";
-};
+    global $slim;
+    $slim->response->setStatus(404);
+    echo "Nothing to see here, move along!";
+}
+
+;
+
+function getSummonerByName() {
+    
+}

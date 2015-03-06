@@ -24,5 +24,5 @@
  * THE SOFTWARE.
  */
 
-define('API_KEY','key');
+define('API_KEY','c08da28e-ba73-4218-9cd5-cc8458844298');
 
