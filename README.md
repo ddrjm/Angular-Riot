@@ -3,7 +3,9 @@ Simple test project of interoperability between angular.js, bootstrap(angular-ui
 slim framework and GuzzleHttp to query league of legends statistics of a person.
 
 ##Usage:
+
 After downloading don't forget to define your Api key inside `api/includes/APIconfig.php`.
+
 ---
 ##TODO:
 * Create simple Angular Bootstrap Interface
