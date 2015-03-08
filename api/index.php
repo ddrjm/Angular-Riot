@@ -39,6 +39,8 @@ $slim->contentType('application/json');
 $slim->get('/', 'onMain');
 $slim->get('/summoner/:nameId', 'getSummonerByName');
 $slim->get('/featured/', 'getFeaturedGames');
+//Data Dragon calls
+$slim->get('/ddragon/summonerSpells', 'getDdragonSummonerSpells');
 
 //run the slim app
 $slim->run();
@@ -47,13 +49,8 @@ $slim->run();
 
 
 function getFeaturedGames() {
-    $client = $GLOBALS['guzzle'];
-
-    $response = $client->get("https://euw.api.pvp.net/observer-mode/rest/featured?api_key=" . API_KEY, ['verify' => false]);
-    $body = $response->getBody();
-    //jsonP protect string see: https://docs.angularjs.org/api/ng/service/$http#get
-    echo ")]}',\n".$body;
-    
+    $url="https://euw.api.pvp.net/observer-mode/rest/featured?api_key=" . API_KEY;
+    echo call($url);
 }
 
 function onMain() {
@@ -66,4 +63,17 @@ function onMain() {
 
 function getSummonerByName() {
     
+}
+
+function getDdragonSummonerSpells() {
+    echo call("http://ddragon.leagueoflegends.com/cdn/5.4.1/data/en_US/summoner.json");
+}
+
+function call($url) {
+    $client = $GLOBALS['guzzle'];
+
+    $response = $client->get($url, ['verify' => false]);
+    $body = $response->getBody();
+    //jsonP protect string see: https://docs.angularjs.org/api/ng/service/$http#get
+    return ")]}',\n" . $body;
 }
