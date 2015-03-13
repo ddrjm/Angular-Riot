@@ -26,6 +26,7 @@
 
 require ("./vendor/autoload.php");
 include ("./includes/APIconfig.php");
+include ("./includes/league_wrapper_class.php");
 
 
 //instatiate guzzle and slim objects
@@ -49,7 +50,7 @@ $slim->run();
 
 
 function getFeaturedGames() {
-    $url="https://euw.api.pvp.net/observer-mode/rest/featured?api_key=" . API_KEY;
+    $url = "https://euw.api.pvp.net/observer-mode/rest/featured?api_key=" . API_KEY;
     echo call($url);
 }
 
@@ -76,4 +77,22 @@ function call($url) {
     $body = $response->getBody();
     //jsonP protect string see: https://docs.angularjs.org/api/ng/service/$http#get
     return ")]}',\n" . $body;
+}
+
+function geturl($data, $apiv, $special = false, $ea = false) {
+    if ($special == 'shardinfo') {
+        return 'http://status.leagueoflegends.com/' . $data;
+    } elseif ($special == 'static-data') {
+        if ($ea) {
+            return 'https://global.api.pvp.net/api/lol/static-data/' . $this->region . '/v' . $apiv . '/' . $data . '?api_key=' . $this->api_key . $ea;
+        } else {
+            return 'https://global.api.pvp.net/api/lol/static-data/' . $this->region . '/v' . $apiv . '/' . $data . '?api_key=' . $this->api_key;
+        }
+    } else {
+        if ($ea) {
+            return 'https://' . $this->region . '.api.pvp.net/api/lol/' . $this->region . '/v' . $apiv . '/' . $data . '?api_key=' . $this->api_key . '&' . $ea;
+        } else {
+            return 'https://' . $this->region . '.api.pvp.net/api/lol/' . $this->region . '/v' . $apiv . '/' . $data . '?api_key=' . $this->api_key;
+        }
+    }
 }
